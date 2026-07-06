@@ -1,0 +1,14 @@
+2,Petrol,2,false,true
+10,Electric,4,true,false
+3,Petrol,7,true,true
+5,Diesel ,7,true,true
+4,Petrol,2,false,true
+6,Petrol,4,true,false
+7,Petrol,5,true,false
+8,Diesel,5,true,true
+9,Petrol,2,false,true
+11,Petrol,5,true,false
+12,Petrol,5,true,false
+13,diesel,5,true,false
+14,Petrol,4,true,false
+15,Diesal,9,true,true

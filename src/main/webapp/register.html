@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register — DrivePoint Auto Rentals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #09090b;
+            --surface: #111113;
+            --surface2: #18181b;
+            --border: rgba(255,255,255,0.08);
+            --border-focus: rgba(240,165,0,0.5);
+            --gold: #f0a500;
+            --gold-dim: rgba(240,165,0,0.1);
+            --text: #f4f0ea;
+            --muted: #7a7672;
+            --error: #f87171;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* NAV */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.1rem 6%;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-mark {
+            width: 26px; height: 26px;
+            background: var(--gold);
+            border-radius: 5px;
+            display: grid;
+            place-items: center;
+        }
+
+        .logo-mark svg { width: 13px; height: 13px; }
+
+        .nav-link {
+            font-size: 0.85rem;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover { color: var(--text); }
+
+        /* MAIN */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        main::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 300px;
+            background: radial-gradient(ellipse, rgba(240,165,0,0.07) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 440px;
+            position: relative;
+            z-index: 2;
+            animation: fadeUp 0.5s ease both;
+        }
+
+        .card-header {
+            margin-bottom: 2rem;
+        }
+
+        .card-tag {
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.6rem;
+        }
+
+        .card-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .card-sub {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-top: 0.5rem;
+            font-weight: 300;
+        }
+
+        /* FORM */
+        .form-group {
+            margin-bottom: 1.1rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.78rem;
+            letter-spacing: 0.06em;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-bottom: 0.45rem;
+        }
+
+        input, select {
+            width: 100%;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            padding: 0.72rem 0.9rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.2s;
+            appearance: none;
+        }
+
+        input::placeholder { color: #3a3835; }
+
+        input:focus, select:focus {
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 3px rgba(240,165,0,0.08);
+        }
+
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%237a7672' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.9rem center;
+            cursor: pointer;
+        }
+
+        select option { background: #18181b; }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--gold);
+            color: #000;
+            border: none;
+            border-radius: 7px;
+            padding: 0.85rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            transition: opacity 0.2s, transform 0.15s;
+            letter-spacing: 0.01em;
+        }
+
+        .btn-submit:hover { opacity: 0.86; transform: translateY(-1px); }
+        .btn-submit:active { transform: translateY(0); }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 1.4rem 0;
+        }
+
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .divider span {
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        .login-link {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .login-link a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .login-link a:hover { text-decoration: underline; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="logo">
+        <span class="logo-mark">
+            <svg viewBox="0 0 14 14" fill="none">
+                    <path d="M4 2.5H7.5C10 2.5 11.5 4.5 11.5 7C11.5 9.5 10 11.5 7.5 11.5H4V2.5Z" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+        </span>
+        DrivePoint Auto Rentals
+    </a>
+    <a href="login.html" class="nav-link">Already have an account? Login →</a>
+</nav>
+
+<main>
+    <div class="card">
+        <div class="card-header">
+            <div class="card-tag">New Account</div>
+            <h1 class="card-title">Create your account</h1>
+            <p class="card-sub">Join thousands of customers renting with ease.</p>
+        </div>
+
+        <form action="./user" method="POST">
+            <input type="hidden" name="action" value="register">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Create a password" required />
+            </div>
+
+            <div class="form-group">
+                <label for="role">Account Type</label>
+                <select id="role" name="role">
+                    <option value="customer">Customer</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-submit">Create Account</button>
+        </form>
+
+        <div class="divider"><span>or</span></div>
+
+        <p class="login-link">Already have an account? <a href="login.html">Sign in</a></p>
+    </div>
+</main>
+
+</body>
+</html>
