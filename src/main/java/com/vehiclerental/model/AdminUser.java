@@ -3,10 +3,8 @@ package com.vehiclerental.model;
 // AdminUser inherits from the main User class
 public class AdminUser extends User {
 
-    // Specific role for the admin
     private String adminRole;
 
-    // Constructor to create an admin user
     public AdminUser(int id, String name, String email, String password, String adminRole) {
         // Pass details to parent constructor and force the system role to "admin"
         super(id, name, email, password, "admin");
