@@ -6,12 +6,10 @@ public class AdminUser extends User {
     private String adminRole;
 
     public AdminUser(int id, String name, String email, String password, String adminRole) {
-        // Pass details to parent constructor and force the system role to "admin"
         super(id, name, email, password, "admin");
         this.adminRole = adminRole;
     }
 
-    // Get the admin role
     public String getAdminRole() {
         return adminRole;
     }
