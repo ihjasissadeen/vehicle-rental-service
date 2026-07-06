@@ -1,6 +1,5 @@
 package com.vehiclerental.util;
 
-// Escapes user-supplied text before it is echoed back into JSP scriptlet output, to prevent stored XSS
 public class HtmlUtils {
 
     private HtmlUtils() {}
