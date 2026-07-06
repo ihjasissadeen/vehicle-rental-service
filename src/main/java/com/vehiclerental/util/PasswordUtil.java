@@ -7,7 +7,6 @@ import java.util.Base64;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
-// Hashes and verifies passwords with PBKDF2 (built into the JDK, no extra dependency needed)
 public class PasswordUtil {
 
     private static final String ALGORITHM = "PBKDF2WithHmacSHA256";
@@ -18,7 +17,6 @@ public class PasswordUtil {
 
     private PasswordUtil() {}
 
-    // Stored format: pbkdf2$<iterations>$<base64 salt>$<base64 hash>
     public static String hash(String plainPassword) {
         byte[] salt = new byte[SALT_LENGTH];
         new SecureRandom().nextBytes(salt);
@@ -27,7 +25,6 @@ public class PasswordUtil {
                 + "$" + Base64.getEncoder().encodeToString(hash);
     }
 
-    // True if the given stored value was produced by hash() above
     public static boolean isHashed(String storedPassword) {
         return storedPassword != null && storedPassword.startsWith(PREFIX);
     }
@@ -35,7 +32,6 @@ public class PasswordUtil {
     public static boolean verify(String plainPassword, String storedPassword) {
         if (plainPassword == null || storedPassword == null) return false;
         if (!isHashed(storedPassword)) {
-            // Legacy plaintext record — compare directly so existing accounts keep working
             return storedPassword.equals(plainPassword);
         }
 
