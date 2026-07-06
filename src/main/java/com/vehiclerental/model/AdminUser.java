@@ -19,7 +19,7 @@ public class AdminUser extends User {
         this.adminRole = adminRole;
     }
 
-    // Method to simulate admin management activity
+   
     public void manageSystem() {
         System.out.println("Admin " + getName() + " is managing the system.");
     }
