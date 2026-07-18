@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @SpringBootApplication
-@ServletComponentScan // This magic tag tells Spring Boot to look for your @WebServlet files!
+@ServletComponentScan
 public class VehicleRentalApplication {
 
     public static void main(String[] args) {

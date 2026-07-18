@@ -1,14 +1,14 @@
-2,Honda,Van,3000.0,true
-3,Nissan,Van,8000.0,false
+2,Honda,Van,15000.0,true
+3,Nissan,Van,14000.0,false
 4,Suzuki,Bike,2500.0,true
-5,Toyota,Van,9000.0,true
-6,BMW,Cars,15000.0,false
-7,Toyota,Cars,7500.0,true
-8,Mahindra,Cars,7500.0,true
+5,Toyota,Van,16000.0,true
+6,BMW,Cars,25000.0,false
+7,Toyota,Cars,12500.0,true
+8,Mahindra,Cars,10500.0,true
 9,Bajaj,Bike,3000.0,true
-10,Tesla,Cars,9000.0,true
-11,Mercedes-Benz,Car,12000.0,true
-12,Volvo,Cars,9000.0,true
-13,Toyota,Cars,6000.0,true
-14,Rolls Royce,Cars,12000.0,true
-15,Toyota,Van,8000.0,true
+10,Tesla,Cars,20000.0,true
+11,Mercedes-Benz,Car,22000.0,true
+12,Volvo,Cars,14000.0,true
+13,Toyota,Cars,12000.0,true
+14,Rolls Royce,Cars,55000.0,true
+15,Toyota,Van,16000.0,true
